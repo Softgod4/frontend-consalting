@@ -1,0 +1,49 @@
+@import '/src/assets/colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.timer {
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
+    article {
+        display: flex;
+        flex-direction: column;
+        font-family: "Bebas Neue", sans-serif !important;
+
+        .count {
+            color: $timer-text;
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 61.8px;
+        }
+        .text {
+            color: $description-text;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20.8px;
+        }
+
+        .warningCount {
+            color: $timer-warning;
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 61.8px;
+        }
+    } 
+
+    .dots {
+        text-align: center;
+        color: $timer-text;
+        opacity: 50%;
+        font-size: 42px;
+        padding: 0 3px 35px 7px;
+    }
+
+    .warningDots {
+        text-align: center;
+        color: $timer-warning;
+        opacity: 50%;
+        font-size: 42px;
+        padding: 0 3px 35px 7px;    
+    }
+}

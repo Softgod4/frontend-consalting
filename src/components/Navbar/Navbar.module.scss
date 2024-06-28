@@ -1,0 +1,28 @@
+@import '/src/assets/colors.scss';
+
+.navbar {
+    background: $white;
+
+    position: fixed;
+
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    article {
+
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+
+        h2 {
+            font-weight: 700;
+            font-size: 30px;
+            color: $primary-text;
+        }
+    }
+}

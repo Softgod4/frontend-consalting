@@ -1,0 +1,73 @@
+@import '/src/assets/colors.scss';
+@import '/src/assets/mixins';
+
+.tile {
+    position: relative;
+    max-width: 100%;
+    height: 125px;
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: $white;
+    transition: all .5s;
+    padding: 20px 31px;
+    border: 2px solid $tile-border;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: normal;
+    grid-column: span 3;
+    
+    article {
+        display: flex;
+        align-items: center;
+
+        h3 {
+            white-space: nowrap;
+            color: $primary-text;
+            font-size: 32px;
+            line-height: 38px;
+            font-weight: 600;
+
+            padding-right: 20px;
+            padding-bottom: 14px;
+        }
+
+        .mainPrice {
+            display: flex;
+            flex-direction: column;
+            padding-right: 50px;
+
+            h4 {
+                font-size: 50px;
+                line-height: 55px;
+                font-weight: 600;
+                color: $primary-text;
+            }
+
+            p {
+                text-align: end;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 26.4px;
+                color: #95979F;
+            }
+    
+        }
+    }
+
+    .description {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: $paragraf-text;
+        text-align: start;
+    }
+
+    @include hover() {
+        background-color: $hover-tile;
+        border: 2px solid $hover-tile-border;
+    }
+}

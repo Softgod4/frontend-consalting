@@ -1,0 +1,45 @@
+@mixin centering ($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin background () {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+  
+@mixin shadow () {
+    transition: all 0.5s;
+    cursor: pointer;
+    &:hover {
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+}
+
+@mixin make-container($padding-x: $container-padding-x) {
+    width: 100%;
+    padding-right: $padding-x;
+    padding-left: $padding-x;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin fluid-text($max: 48, $min: 16) {
+    font-size: clamp(#{min}px, #{$max / 1564 * 100}vw, #{$max}px);
+}
+
+@mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+    @media (hover: none) {
+        &:active {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@import '/src/assets/mixins';
+@import '/src/assets/colors.scss';
+
+.main {
+    position: absolute;
+    cursor: default;
+
+    top: -30px;
+    right: 8px;
+
+    background: url('/Star.svg');
+    @include background();
+    align-content: center;
+
+    width: 70px;
+    height: 70px;
+
+
+    p {
+        color: $white;
+        height: 24px;
+        font-size: 19px;
+    }
+}

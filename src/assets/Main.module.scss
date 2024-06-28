@@ -1,0 +1,72 @@
+@import './colors.scss';
+@import './mixins';
+
+.title {
+    padding-top: 27px;
+    padding-bottom: 97px;
+
+   h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+
+    color: $primary-text;
+   } 
+}
+
+.picture {
+    width: 50%;
+    position: relative;
+
+    img {
+        @include background();
+    }
+
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background: linear-gradient(to top, #F5F7F7, transparent);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0; 
+        left: 0;
+        right: 0;
+        height: 50px; 
+        background: linear-gradient(to top, #F5F7F7, transparent);
+        z-index: -1;
+    }
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.text {
+    width: 40%;
+}
+
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    justify-content: center;
+}
+
+.footer {
+    p:first-child {
+        margin-top: 12px;
+
+        color: $primary-text;
+        font-size: 18px;
+        font-weight: 400;
+        text-align: start;
+    }
+}
