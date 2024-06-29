@@ -4,8 +4,10 @@
 .main {
     position: absolute;
     cursor: default;
+    user-select: none;
+    text-align: center;
 
-    top: -30px;
+    top: -32px;
     right: 8px;
 
     background: url('/Star.svg');

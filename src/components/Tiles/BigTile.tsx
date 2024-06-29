@@ -2,9 +2,16 @@ import StarSale from './StarSale';
 import { TileProps } from './TileProps';
 import styles from './BigTile.module.scss';
 
-const BigTile: React.FC<TileProps> = ({ interval, price, description, discount }) => {
+const BigTile: React.FC<TileProps> = ({
+    interval,
+    price,
+    description,
+    discount,
+    isSelected,
+    onClick
+}) => {
     return (
-        <div className={styles.tile}>
+        <div className={isSelected ? styles.active : styles.tile} onClick={onClick}>
             <StarSale CompPercentageDiscount="-30%" />
             <article>
                 <h3>{interval}</h3>

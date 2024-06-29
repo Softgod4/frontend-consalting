@@ -1,7 +1,7 @@
 import styles from './Navbar.module.scss';
 import Timer from '../Timer/Timer';
 
-const Navbar: React.FC<{}> = () => {
+const Navbar = () => {
     return (
         <div className={styles.navbar}>
             <article>

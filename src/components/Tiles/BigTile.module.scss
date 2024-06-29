@@ -1,25 +1,23 @@
 @import '/src/assets/colors.scss';
 @import '/src/assets/mixins';
 
-.tile {
+.tile-base {
     position: relative;
     max-width: 100%;
     height: 125px;
-    margin-top: 30px;
+    margin-top: 25px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    background-color: $white;
-    transition: all .5s;
+    transition: all 0.5s;
     padding: 20px 31px;
-    border: 2px solid $tile-border;
     border-radius: 20px;
     cursor: pointer;
     font-size: normal;
     grid-column: span 3;
-    
+
     article {
         display: flex;
         align-items: center;
@@ -54,7 +52,6 @@
                 line-height: 26.4px;
                 color: #95979F;
             }
-    
         }
     }
 
@@ -65,9 +62,16 @@
         color: $paragraf-text;
         text-align: start;
     }
+}
 
-    @include hover() {
-        background-color: $hover-tile;
-        border: 2px solid $hover-tile-border;
-    }
+.tile {
+    @extend .tile-base;
+    background-color: $white;
+    border: 2px solid $tile-border;
+}
+
+.active {
+    @extend .tile-base;
+    background-color: $hover-tile;
+    border: 2px solid $hover-tile-border;
 }

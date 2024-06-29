@@ -4,6 +4,7 @@
 .title {
     padding-top: 27px;
     padding-bottom: 97px;
+    text-align: center;
 
    h1 {
     font-size: 40px;
@@ -15,8 +16,11 @@
 }
 
 .picture {
-    width: 50%;
+    width: 585px;
+    height: auto;
     position: relative;
+    display: flex;
+    justify-content: space-between;
 
     img {
         @include background();
@@ -47,26 +51,108 @@
     display: flex;
     justify-content: center;
     align-items: start;
+    padding-bottom: 107px;
 }
 
 .text {
-    width: 40%;
+    width: 585px;
 }
 
 .tiles {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    justify-content: center;
+    justify-content: start;
 }
 
 .footer {
+
     p:first-child {
-        margin-top: 12px;
+        padding-top: 16px;
 
         color: $primary-text;
-        font-size: 18px;
+        font-size: 17px;
         font-weight: 400;
         text-align: start;
+
+        padding-bottom: 26px;
+    }
+
+    .rules {
+        label {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            text-align: start;
+            justify-content: start;
+            cursor: pointer;
+            margin-bottom: 50px;
+
+            span {
+                user-select: none;
+                color: $description-text;
+                font-weight: 300;
+                font-size: 16px;
+
+                a {
+                    color: $links-text;
+                }
+            }
+
+            input[type="checkbox"] {
+                appearance: none;
+                min-width: 26px;
+                height: 26px;
+                border: 2px solid $checkbox;
+                border-radius: 6px;
+                background-color: #fff;
+                cursor: pointer;
+                margin-right: 12px;
+                position: relative;
+                transition: all .1s;
+            }
+
+            input[type="checkbox"]:checked {
+                border-radius: 8px;
+                background-color: $checkbox;
+                border-color: $checkbox;
+            }
+
+            input[type="checkbox"]:checked::after {
+                content: '';
+                position: absolute;
+                left: 32%;
+                top: 12%;
+                width: 6px;
+                height: 12px;
+                border: solid white;
+                border-width: 0 2.5px 2.5px 0;
+                border-radius: 1px;
+                transform: rotate(45deg);
+            }
+        }
+
+        button {
+            background-color: $orange-primary;
+            cursor: pointer;
+            color: $white;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 20px;
+
+            width: 281px;
+            height: 76px;
+            border-radius: 60px;
+            border: none;
+            padding: 28px, 100px, 28px, 100px;
+            gap: 8px;
+        }
+
+        .description {
+            padding-top: 30px;
+            color: $description-text;
+            font-weight: 200;
+            font-size: 14px;
+        }
     }
 }
