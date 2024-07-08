@@ -1,11 +1,10 @@
-import Navbar from '../src/components/Navbar/Navbar';
 import Container from './components/Container/Container';
 import styles from '../src/assets/Main.module.scss';
 import SmallTile from './components/Tiles/SmallTile';
 import BigTile from './components/Tiles/BigTile';
 import { useEffect, useRef, useState } from 'react';
-import { useGSAP } from '@gsap/react';
-import { gsap } from "gsap/all"
+import { gsap } from 'gsap/all';
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
     const [selectedTile, setSelectedTile] = useState<number | null>(null);
@@ -14,14 +13,13 @@ const App = () => {
 
     useEffect(() => {
         const element = buttonMain.current;
-        gsap.to(element, { 
-            backgroundColor: "#fc5b45",
+        gsap.to(element, {
+            backgroundColor: '#fc5b45',
             duration: 1,
             repeat: -1,
             yoyo: true
         });
-    })
-    
+    });
 
     const handleTileClick = (tileId: number) => {
         setSelectedTile(tileId);
@@ -91,7 +89,9 @@ const App = () => {
                                     </span>
                                 </label>
 
-                                <button ref={buttonMain} type="button">КУПИТЬ</button>
+                                <button ref={buttonMain} type="button">
+                                    КУПИТЬ
+                                </button>
 
                                 <p className={styles.description}>
                                     Нажимая «Купить», Пользователь соглашается на автоматическое

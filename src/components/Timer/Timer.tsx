@@ -1,16 +1,27 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from '../Timer/Timer.module.scss';
 import gsap from 'gsap';
+import useTimeoutStore from '../../TimeoutStore';
 
-const Timer: React.FC<{}> = () => {
+interface TimerContextType {
+    seconds: number;
+    minutes: number;
+    stop: boolean;
+    setSeconds: (seconds: number) => void;
+    setMinutes: (minutes: number) => void;
+    setStop: (stop: boolean) => void;
+}
+
+const Timer: React.FC<TimerContextType> = () => {
     const [second, setSecond] = useState(35);
     const [minutes, setMinutes] = useState(0);
     const [stop, setStop] = useState(false);
+    const { toggleShow } = useTimeoutStore();
 
     const dotsRef: React.RefObject<HTMLParagraphElement> = useRef<HTMLParagraphElement>(null);
 
     useEffect(() => {
-        if (second == 30) {
+        if (second == 30 && minutes == 0) {
             const element = dotsRef.current;
             gsap.to(element, {
                 opacity: 0.7,
@@ -18,8 +29,9 @@ const Timer: React.FC<{}> = () => {
                 repeat: 30,
                 yoyo: true
             });
+            toggleShow();
         }
-    }, [second]);
+    }, [second, toggleShow]);
 
     useEffect(() => {
         if (stop) return;

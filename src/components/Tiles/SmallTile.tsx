@@ -1,6 +1,7 @@
 import { TileProps } from './TileProps';
 import styles from './SmallTile.module.scss';
 import StarSale from './StarSale';
+import useTimeoutStore from '../../TimeoutStore';
 
 const SmallTile: React.FC<TileProps> = ({
     interval,
@@ -10,6 +11,7 @@ const SmallTile: React.FC<TileProps> = ({
     isSelected,
     onClick
 }) => {
+    const show = useTimeoutStore((state) => state.show);
     return (
         <div className={isSelected ? styles.active : styles.tile} onClick={onClick}>
             <StarSale CompPercentageDiscount="-30%" />
