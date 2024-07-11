@@ -1,11 +1,11 @@
 import StarSale from './StarSale';
 import { TileProps } from './TileProps';
-import styles from './BigTile.module.scss';
+import styles from './MediaTile.module.scss';
 import useTimeoutStore from '../../TimeoutStore';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-const BigTile: React.FC<TileProps> = ({
+const MediaTile: React.FC<TileProps> = ({
     interval,
     price,
     description,
@@ -32,17 +32,22 @@ const BigTile: React.FC<TileProps> = ({
         <div className={isSelected ? styles.active : styles.tile} onClick={onClick}>
             <StarSale CompPercentageDiscount="-30%" />
             <article>
-                <h3>{interval}</h3>
-                <div className={styles.mainPrice}>
-                    <h4>{show ? price : discount}</h4>
-                    <p ref={discountsRef}>
-                        <del>{discount}</del>
-                    </p>
+                <div className={styles.text}>
+                    <h3>{interval}</h3>
+                    <p className={styles.description}>{description}</p>
+                </div>
+
+                <div className={styles.price}>
+                    <article>
+                        <h4>{show ? price : discount}</h4>
+                        <p ref={discountsRef}>
+                            <del>{discount}</del>
+                        </p>
+                    </article>
                 </div>
             </article>
-            <p className={styles.description}>{description}</p>
         </div>
     );
 };
 
-export default BigTile;
+export default MediaTile;

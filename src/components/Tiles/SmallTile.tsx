@@ -1,7 +1,9 @@
 import { TileProps } from './TileProps';
 import styles from './SmallTile.module.scss';
 import StarSale from './StarSale';
+import { useEffect, useRef } from 'react';
 import useTimeoutStore from '../../TimeoutStore';
+import gsap from 'gsap';
 
 const SmallTile: React.FC<TileProps> = ({
     interval,
@@ -12,13 +14,27 @@ const SmallTile: React.FC<TileProps> = ({
     onClick
 }) => {
     const show = useTimeoutStore((state) => state.show);
+    const discountsRef: React.RefObject<HTMLParagraphElement> = useRef<HTMLParagraphElement>(null);
+
+    useEffect(() => {
+        if (!show) {
+            const element = discountsRef.current;
+            gsap.to(element, {
+                position: 'relative',
+                opacity: 0,
+                duration: 0.5,
+                top: '-15px'
+            });
+        }
+    }, [show]);
+
     return (
         <div className={isSelected ? styles.active : styles.tile} onClick={onClick}>
             <StarSale CompPercentageDiscount="-30%" />
             <article>
                 <h3>{interval}</h3>
-                <h4 className={styles.mainPrice}>{price}</h4>
-                <p>
+                <h4 className={styles.mainPrice}>{show ? price : discount}</h4>
+                <p ref={discountsRef}>
                     <del>{discount}</del>
                 </p>
             </article>

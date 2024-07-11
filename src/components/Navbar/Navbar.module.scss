@@ -24,6 +24,13 @@
             font-weight: 700;
             font-size: 30px;
             color: $primary-text;
+            line-height: 20px;
+
+            @media (max-width: 1000px) {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 20px;
+            }
         }
     }
 }

@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     margin-left: 35px;
+
     article {
         display: flex;
         flex-direction: column;
@@ -15,12 +16,10 @@
             font-weight: 400;
             font-size: 60px;
             line-height: 61.8px;
-        }
-        .text {
-            color: $description-text;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 20.8px;
+
+            @media (max-width: 1000px) {
+                font-size: 55px;
+            }
         }
 
         .warningCount {
@@ -28,8 +27,19 @@
             font-weight: 400;
             font-size: 60px;
             line-height: 61.8px;
+
+            @media (max-width: 1000px) {
+                font-size: 55px;
+            }
         }
-    } 
+
+        .text {
+            color: $description-text;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20.8px;
+        }
+    }
 
     .dots {
         text-align: center;
@@ -37,6 +47,10 @@
         opacity: 50%;
         font-size: 42px;
         padding: 0 3px 35px 7px;
+
+        @media (max-width: 1000px) {
+            padding: 0px 15px 35px 20px;
+        }
     }
 
     .warningDots {
@@ -44,6 +58,10 @@
         color: $timer-warning;
         opacity: 50%;
         font-size: 42px;
-        padding: 0 3px 35px 7px;    
+        padding: 0 3px 35px 7px;
+
+        @media (max-width: 1000px) {
+            padding: 0px 20px 35px 25px;
+        }
     }
 }

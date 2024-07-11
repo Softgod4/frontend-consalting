@@ -122,3 +122,9 @@
         color: $paragraf-text;
     }
 }
+
+@media (max-width: 1000px) {
+    .tile {
+        width: 100% !important;
+    }
+}

@@ -23,4 +23,19 @@
         height: 24px;
         font-size: 19px;
     }
+
+    @media (max-width: 1000px) {
+        top: 5px;
+        width: 50px;
+        height: 50px;
+
+        p {
+            font-size: 14px;
+            height: 17px;
+        }
+    }
+
+    @media (max-width: 507px) {
+        top: -20px;
+    }
 }

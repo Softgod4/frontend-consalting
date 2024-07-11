@@ -1,0 +1,21 @@
+@import '/src/assets/mixins';
+
+.popup {
+    z-index: 9;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    @include centering(row);
+
+    .popupContent {
+        padding: 60px 20px 20px;
+        background-color: white;
+        height: auto;
+        max-width: 750px;
+    }
+}
+

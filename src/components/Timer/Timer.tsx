@@ -13,8 +13,8 @@ interface TimerContextType {
 }
 
 const Timer: React.FC<TimerContextType> = () => {
-    const [second, setSecond] = useState(35);
-    const [minutes, setMinutes] = useState(0);
+    const [second, setSecond] = useState(30);
+    const [minutes, setMinutes] = useState(2);
     const [stop, setStop] = useState(false);
     const { toggleShow } = useTimeoutStore();
 
@@ -29,9 +29,11 @@ const Timer: React.FC<TimerContextType> = () => {
                 repeat: 30,
                 yoyo: true
             });
+        }
+        if (second == 0 && minutes == 0) {
             toggleShow();
         }
-    }, [second, toggleShow]);
+    }, [second]);
 
     useEffect(() => {
         if (stop) return;

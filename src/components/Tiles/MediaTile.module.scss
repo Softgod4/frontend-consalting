@@ -1,0 +1,99 @@
+@import '/src/assets/colors.scss';
+@import '/src/assets/mixins';
+
+.tile-base {
+    position: relative;
+    max-width: 100%;
+    height: 125px;
+
+    transition: all 0.5s;
+    padding: 20px 31px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: normal;
+
+    article {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+
+        .text {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+
+            @media (max-width: 407px) {
+                width: auto;
+            }
+
+            h3 {
+                white-space: nowrap;
+                color: $second-text;
+                font-size: 22px;
+                line-height: 24px;
+                font-weight: 500;
+                text-align: start;
+                margin-bottom: 18px;
+            }
+            p {
+                text-align: start;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 26.4px;
+                color: $paragraf-text;
+            }
+        }
+        .price {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width: 407px) {
+                width: auto;
+            }
+
+            article {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                
+                h4 {
+                    font-size: 50px;
+                    line-height: 55px;
+                    font-weight: 600;
+                    color: $primary-text;
+                    white-space: nowrap;
+
+                    @media (max-width: 1000px) {
+                        font-size: 44px;
+                        line-height: 44px;
+                    }
+                }
+    
+                p {
+                    text-align: end;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 26.4px;
+                    color: #95979F;
+                }
+            }
+        }
+    }
+}
+
+.tile {
+    @extend .tile-base;
+    background-color: $white;
+    border: 2px solid $tile-border;
+}
+
+.active {
+    @extend .tile-base;
+    background-color: $hover-tile;
+    border: 2px solid $hover-tile-border;
+}

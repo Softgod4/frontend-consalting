@@ -6,13 +6,21 @@
     padding-bottom: 97px;
     text-align: center;
 
-   h1 {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 44px;
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 44px;
 
-    color: $primary-text;
-   } 
+        color: $primary-text;
+    }
+
+    @media (max-width: 1000px) {
+        text-align: start;
+
+        h1 {
+            font-size: 29px;
+        }
+    }
 }
 
 .picture {
@@ -21,6 +29,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 
     img {
         @include background();
@@ -38,12 +47,17 @@
     &::after {
         content: "";
         position: absolute;
-        bottom: 0; 
+        bottom: 0;
         left: 0;
         right: 0;
-        height: 50px; 
+        height: 50px;
         background: linear-gradient(to top, #F5F7F7, transparent);
         z-index: -1;
+    }
+
+    @media (max-width: 1000px) {
+        justify-content: center;
+        width: 100%;
     }
 }
 
@@ -52,10 +66,22 @@
     justify-content: center;
     align-items: start;
     padding-bottom: 107px;
+
+    @media (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0px;
+    }
 }
 
 .text {
     width: 585px;
+
+    @media (max-width: 1000px) {
+        width: 100%;
+    }
 }
 
 .tiles {
@@ -63,6 +89,12 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     justify-content: start;
+
+    @media (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 .footer {
@@ -99,6 +131,7 @@
                 }
             }
 
+
             input[type="checkbox"] {
                 appearance: none;
                 min-width: 26px;
@@ -130,6 +163,14 @@
                 border-radius: 1px;
                 transform: rotate(45deg);
             }
+
+            @media (max-width: 1000px) {
+                width: 100%;
+
+                span {
+                    font-size: 19px;
+                }
+            }
         }
 
         button {
@@ -146,6 +187,11 @@
             border: none;
             padding: 28px, 100px, 28px, 100px;
             gap: 8px;
+
+            @media (max-width: 1000px) {
+                width: 100%;
+                font-weight: 600;
+            }
         }
 
         .description {
@@ -153,6 +199,10 @@
             color: $description-text;
             font-weight: 200;
             font-size: 14px;
+
+            @media (max-width: 1000px) {
+                display: none;
+            }
         }
     }
 }
