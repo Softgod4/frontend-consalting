@@ -1,3 +1,6 @@
+// код для легкого отслеживания того что таймер закончил отчет
+// zustand
+
 import { create } from 'zustand';
 
 type TimeoutProps = {

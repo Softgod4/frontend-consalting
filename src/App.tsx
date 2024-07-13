@@ -8,13 +8,14 @@ import Navbar from './components/Navbar/Navbar';
 import MediaTile from './components/Tiles/MediaTile';
 import tilesData from './TilesData';
 import Popup from './components/Popup/Popup';
+import usePopupStore from '../src/components/Popup/PopupStore';
 
 const App = () => {
     const [selectedTile, setSelectedTile] = useState<number | null>(null);
     const [isSmallScreen, setIsSmallScreen] = useState<boolean>(window.innerWidth < 1200);
-    const [popupActive, setPopupActive] = useState(true)
 
     const buttonMain: React.RefObject<HTMLButtonElement> = useRef<HTMLButtonElement>(null);
+    const { PopupShow } = usePopupStore();
 
     const handleResize = () => {
         setIsSmallScreen(window.innerWidth < 1000);
@@ -41,8 +42,8 @@ const App = () => {
 
     return (
         <>
+            {PopupShow ? <Popup /> : ''}
             <Navbar />
-            <Popup active={popupActive} setActive={setPopupActive}/>
             <Container>
                 <article className={styles.title}>
                     <h1>ВЫБЕРИТЕ ПОДХОДЯЩИЙ ТАРИФНЫЙ ПЛАН</h1>
@@ -66,6 +67,7 @@ const App = () => {
                                         price={tileProps.price + '₽'}
                                         description={tileProps.description}
                                         discount={tileProps.discount + '₽'}
+                                        PercentageDiscount={tileProps.precentage}
                                         isSelected={selectedTile === tileProps.id}
                                         onClick={() => handleTileClick(tileProps.id)}
                                     />
@@ -80,6 +82,7 @@ const App = () => {
                                     discount="18 990&#8381;"
                                     isSelected={selectedTile === 4}
                                     onClick={() => handleTileClick(4)}
+                                    PercentageDiscount="-70%"
                                 />
                             ) : (
                                 <BigTile

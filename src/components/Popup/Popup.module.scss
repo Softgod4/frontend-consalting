@@ -1,10 +1,11 @@
 @import '/src/assets/mixins';
+@import '/src/assets/colors.scss';
 
 .popup {
     z-index: 9;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 0;
     left: 0;
@@ -12,10 +13,148 @@
     @include centering(row);
 
     .popupContent {
+
+        .signboard {
+            position: absolute;
+            padding: 5px 10px;
+            background-color: $signboard;
+            left: 55px;
+            top: 0;
+            width: 180px;
+            cursor: default;
+
+            &>p {
+                white-space: nowrap;
+                text-align: center;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                color: $white;
+            }
+        }
+
+        position: relative;
         padding: 60px 20px 20px;
         background-color: white;
         height: auto;
-        max-width: 750px;
+        width: 750px;
+        @include centering(column);
+
+        &>span {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .mainText {
+            @include centering(column);
+
+            h3 {
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 39px;
+                padding-bottom: 35px;
+
+                span {
+                    color: $popup-dec;
+                }
+            }
+
+            &>p {
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 31px;
+                color: $primary-text;
+
+                @media (max-width: 1000) {
+                    font-size: 18px;
+                }
+
+                span {
+                    font-weight: 700;
+                }
+            }
+
+            .mainSales {
+                margin-top: 8px;
+                border-radius: 30px;
+                border: 1.5px solid $popup-dec;
+                padding: 12px 28px;
+                color: $primary-text;
+
+                p {
+                    font-size: 24px;
+                    font-weight: 700;
+
+                    @media (max-width: 1000px) {
+                        font-size: 16px;
+                    }
+
+                    span {
+                        color: $popup-dec;
+                    }
+                }
+            }
+        }
+
+        .tiles {
+            margin-top: 40px;
+            width: 100%;
+
+            &>p {
+                font-size: 24px;
+                font-weight: 350;
+                padding-bottom: 20px;
+
+                @media (max-width: 1000px) {
+                    font-size: 18px;
+                    text-align: center;
+                }
+            }
+
+            &>div {
+                @include centering(row);
+
+                @media (max-width: 1000px) {
+                    @include centering(column)
+                }
+            }
+        }
+
+        .popupButton {
+            background-color: $orange-primary;
+            cursor: pointer;
+            color: $white;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 20px;
+
+            width: 281px;
+            height: 76px;
+            border-radius: 60px;
+            border: none;
+            padding: 28px, 100px, 28px, 100px;
+            gap: 8px;
+            margin: 40px 0px 25px;
+
+            @media (max-width: 1000px) {
+                width: 100%;
+                font-weight: 600;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            width: 80vw;
+
+            .signboard {
+                left: 0px;
+            }
+        }
     }
 }
-

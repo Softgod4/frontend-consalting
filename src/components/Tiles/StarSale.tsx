@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 interface StarProps {
-    CompPercentageDiscount: string;
+    CompPercentageDiscount?: string;
 }
 
 const StarSale: React.FC<StarProps> = ({ CompPercentageDiscount }) => {

@@ -11,7 +11,8 @@ const MediaTile: React.FC<TileProps> = ({
     description,
     discount,
     isSelected,
-    onClick
+    onClick,
+    PercentageDiscount
 }) => {
     const show = useTimeoutStore((state) => state.show);
     const discountsRef: React.RefObject<HTMLParagraphElement> = useRef<HTMLParagraphElement>(null);
@@ -30,7 +31,7 @@ const MediaTile: React.FC<TileProps> = ({
 
     return (
         <div className={isSelected ? styles.active : styles.tile} onClick={onClick}>
-            <StarSale CompPercentageDiscount="-30%" />
+            <StarSale CompPercentageDiscount={PercentageDiscount} />
             <article>
                 <div className={styles.text}>
                     <h3>{interval}</h3>

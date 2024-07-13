@@ -30,7 +30,7 @@ const BigTile: React.FC<TileProps> = ({
 
     return (
         <div className={isSelected ? styles.active : styles.tile} onClick={onClick}>
-            <StarSale CompPercentageDiscount="-30%" />
+            <StarSale CompPercentageDiscount="-70%" />
             <article>
                 <h3>{interval}</h3>
                 <div className={styles.mainPrice}>

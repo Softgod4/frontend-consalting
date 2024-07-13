@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '../Timer/Timer.module.scss';
 import gsap from 'gsap';
 import useTimeoutStore from '../../TimeoutStore';
+import usePopupStore from '../Popup/PopupStore';
 
 interface TimerContextType {
     seconds: number;
@@ -13,10 +14,11 @@ interface TimerContextType {
 }
 
 const Timer: React.FC<TimerContextType> = () => {
-    const [second, setSecond] = useState(30);
-    const [minutes, setMinutes] = useState(2);
+    const [second, setSecond] = useState(5);
+    const [minutes, setMinutes] = useState(0);
     const [stop, setStop] = useState(false);
     const { toggleShow } = useTimeoutStore();
+    const { PopupToggleShow } = usePopupStore();
 
     const dotsRef: React.RefObject<HTMLParagraphElement> = useRef<HTMLParagraphElement>(null);
 
@@ -32,6 +34,7 @@ const Timer: React.FC<TimerContextType> = () => {
         }
         if (second == 0 && minutes == 0) {
             toggleShow();
+            PopupToggleShow();
         }
     }, [second]);
 
