@@ -13,7 +13,6 @@ import usePopupStore from '../src/components/Popup/PopupStore';
 const App = () => {
     const [selectedTile, setSelectedTile] = useState<number | null>(null);
     const [isSmallScreen, setIsSmallScreen] = useState<boolean>(window.innerWidth < 1200);
-
     const buttonMain: React.RefObject<HTMLButtonElement> = useRef<HTMLButtonElement>(null);
     const { PopupShow } = usePopupStore();
 
