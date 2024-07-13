@@ -1,5 +1,7 @@
 # Frontend Subscription SPA
 
+<img src='screenshot.png'/>
+
 ## Overview
 
 This project is a single-page application (SPA) designed to showcase various subscription plans. It was built using modern web technologies including React, TypeScript, Zustand, SCSS, SCSS Modules, and GSAP for animations. The project was developed as part of an application for a web engineer position on hh.ru and was completed within 1.5 weeks.
